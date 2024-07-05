@@ -1,0 +1,100 @@
+<!--
+title: PRB0051282-SAP P92/P93: Unable to process vendor payments
+description: PRB0051282-SAP P92/P93: Unable to process vendor payments
+published: true
+date: 2024-07-02T11:00:48.336Z
+tags: 
+editor: ckeditor
+dateCreated: 2024-06-03T06:23:27.070Z
+-->
+
+<h1><br><strong>Root Cause Analysis Report</strong></h1>
+<h2><strong>1. Incident Details</strong></h2>
+<p><strong>Title:</strong> : INC1212578 - SAP P92/P93: Unable to process vendor payments</p>
+<p>**Incident Start Date and time CET:2024-04-22 08:24:34<br>**Incident End Date and time CET:2024-04-22 17:06:38<br>**Incident SLA Met: Yes</p>
+<p><strong>Snow Incident Ticket Number:</strong> INC1212578</p>
+<p><strong>Snow Problem Ticket Number:</strong> PRB0051282</p>
+<p>**RCA Owner (Snow group):Sambasivarao Garikipati</p>
+<p><strong>Affected Locations,Users or Countries:</strong> N/A</p>
+<p>**Affected Servers or Applications: MyID</p>
+<p><strong>Problem Description:</strong><br>SAP P92/P93: Unable to process vendor payments</p>
+<h2><strong>2. Workaround</strong></h2>
+<p>NA</p>
+<h2><strong>3. Root Cause</strong></h2>
+<p><a href="https://en.wikipedia.org/wiki/Five_whys">(Use a 5 Why analysis to get to the Root cause) (Opens in new window or tab)</a></p>
+<p>1.Why SAP systems were un-accessible?<br>--Person Master Data application corrupted in myID.</p>
+<p>2.Why PMD application is corrupted in myID?<br>--Unfortunately we could not find how the application is corrupted.</p>
+<p>We have imported the old Person Master application in production which was not having all the attributes like Flag value accepts multiple value. So all the users are having only one value at a time which is causing the issue and users are not able to access myHR portal.</p>
+<p>We have corrected the Flags and other attributes in the Person Master Data application to solve the issue.</p>
+<p><strong>What was the technical root cause of the incident?</strong><br><strong>Did any organizational or process issues impact the handling of the incident? If yes, what was the root cause?</strong></p>
+<p>NA</p>
+<h2><strong>4. Preventive Measures: Solution &amp; Actions</strong></h2>
+<p>**What is the solution to prevent this incident from happening again?</p>
+<p>Take backup of applications when deployed any new functionality and also in regular intervals. If the application corrupted, we can import the latest the backup.</p>
+<p>Revoked the admin access from other users.</p>
+<p>&nbsp;</p>
+<figure class="table">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:0px;border-left:0px;border-right:0px;border-top:0px;">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Action Item</strong></th>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Status Tracking</strong></th>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Owner</strong></th>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Due date</strong></th>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Change Request Nr.</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">NA</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">NA</td>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">NA</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">NA</td>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">N/A</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(245, 245, 245);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(245, 245, 245);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(245, 245, 245);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(245, 245, 245);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<h2><strong>5. Reference</strong></h2>
+<figure class="table">
+  <table style="background-color:rgb(255, 255, 255);border-bottom:0px;border-left:0px;border-right:0px;border-top:0px;">
+    <thead>
+      <tr>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Created By:</strong></th>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Sambasivarao Garikipati</strong></th>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>Date:</strong></th>
+        <th style="background-color:rgb(239, 241, 243);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:13px 11px;"><strong>03/06/2024</strong></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">Henkel Reviewed By:</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+        <td style="border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">Date:</td>
+        <td style="background-color:rgb(250, 250, 250);border-bottom:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-left:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-right:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));border-top:1px solid var(--component-grid-cell-bottom-border-color, rgba(234, 234, 234, 1));padding:10px 13px;">&nbsp;</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>Comments:</p>

@@ -1,0 +1,196 @@
+<!--
+title: Policy violation rules
+description: 
+published: true
+date: 2024-07-03T07:32:39.688Z
+tags: 
+editor: ckeditor
+dateCreated: 2024-04-02T07:43:15.624Z
+-->
+
+<h1>Policy Violation Rules</h1>
+<p>&nbsp;</p>
+<ol>
+  <li>Non-Privileged users cannot request Privileged Entitlements or Privileged Roles with Privileged Entitlements (Azure and Windows AD apps), for remaining all application privileged/non-privileged entitlements can be requested.</li>
+  <li>Shared Mailbox accounts can request only Mailing Group Entitlements, other than mailing group entitlements cannot be requested for Shared Mailbox accounts.</li>
+  <li>Phone Contacts cannot request for any of the entitlements.</li>
+  <li>Mail Contacts can request only Mailing Group Entitlements, other than mailing group entitlements cannot be requested for Shared Mailbox accounts.</li>
+  <li>Business Partners can request for Cloud Application (Azure AD) groups only.</li>
+  <li>Identities with “Test Business Role for One Account” role can have only one account.</li>
+  <li>Call Queues and Auto Attendants cannot request for any of the entitlements.</li>
+</ol>
+<p style="text-align:center;">&nbsp;</p>
+<figure class="table" style="text-align:center;width:496.75pt;">
+  <table style="border-bottom:none;border-left:none;border-right:none;border-top:none;">
+    <tbody>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt solid windowtext;height:27.45pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Identity SubType \Entitlement Type</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt none windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt solid windowtext;height:27.45pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;"><strong>Mailing Groups Entitlements</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt none windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt solid windowtext;height:27.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;"><strong>Non-Mailing Group Entitlements</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt none windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt solid windowtext;height:27.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;"><strong>Cloud-Only App Entitlements</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt none windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt solid windowtext;height:27.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;"><strong>Privileged Entitlements (Azure AD and Windows AD Apps)</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt none windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt solid windowtext;height:27.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;"><strong>Non-Privileged Entitlements (All Apps)</strong></td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Personal Testing Account</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Privileged Personal</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Application Account</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Privileged System ID</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:18.3pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Call Queues</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Auto Attendants</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Service Principal</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Shared User ID</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:14.35pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Privileged Shared ID</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:14.35pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:14.35pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:14.35pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:14.35pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:14.35pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">Yes</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Shared Mailbox</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Connected Worker</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:17.6pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Phone Contact</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:9.15pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Mail Contact</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">Yes</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Authoritative Business Partner</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:1.0pt solid windowtext;border-right:1.0pt solid windowtext;border-top:1.0pt none windowtext;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:81.0pt;"><strong>Managed Partner</strong></td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:59.55pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:76.8pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+        <td style="border-bottom:1.0pt solid windowtext;border-left:none;border-right:1.0pt solid windowtext;border-top:none;height:8.45pt;padding:0cm 5.4pt;vertical-align:top;width:101.3pt;">No</td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<ol>
+  <li>If “<strong>Office 365 - E-Mail activation / Outlook Role”&nbsp;</strong>cannot be requested for Secondary Identities.</li>
+  <li><strong>“BU_O365_MAIL_ACTIVATION”&nbsp;</strong>can be requested by only Personal Primary and Secondary (Both Internal and Externals) and cannot be request for any other identity types.</li>
+  <li><strong>“BU_O365_Skype_For_Business” </strong>can be requested by only Personal Primary and Secondary (Both Internal and Externals) and cannot be request for any other identity types.</li>
+  <li><strong>“BU_O365_Office_Pro_Plus”&nbsp;</strong>can be requested for only Personal Primary and Personal Secondary Internal Users and cannot be request for any other identity types.</li>
+  <li>“<strong>BU_O365_Office_Pro_Plus_for_Externals” </strong>can be requested for only Personal Primary and Personal Secondary External Users and cannot be request for any other identity types.</li>
+  <li><strong>“BU_O365_Forms”&nbsp;</strong>can be requested by only Personal Primary and Secondary (Both Internal and Externals) and cannot be request for any other identity types.</li>
+  <li><strong>“BU-Office 365-Visio”&nbsp;</strong>can be requested by only Personal Primary and Secondary (Both Intnal and Externals) and cannot be request for any other identity types.</li>
+  <li><strong>“BU-Office 365-Project”&nbsp;</strong>can be requested by only Personal Primary and Secondary (Both Internal and Externals) and cannot be request for any other identity types.</li>
+  <li><strong>“IT_O365_POWERBI_FREE”&nbsp;</strong>can be requested by only Personal Primary and Secondary (Both Internal and Externals), System ID, Shared ID, Robot ID and cannot be request for any other identity types.</li>
+  <li><strong>“BU_Office 365_ Power BI Publisher”&nbsp;</strong>can be requested by only Personal Primary and Secondary (Both Internal and Externals) and cannot be request for any other identity types.</li>
+  <li>If Identity has “Azure AD Direct Cloud” account, then we can’t request for any other account and vice versa.</li>
+  <li>If Identity has On-Prem AD account and doesn’t have Azure AD account then requesting for any Azure AD group, it will not allow and we have to request for <strong>“Native On-Prem to Hybrid converter”&nbsp;</strong>to convert from on-prem account to hybrid account.</li>
+  <li>If Identity has On-prem AD account and upn with henkelgroup.net then user can’t request for Azure Group and they have to raise ticket to MyID team to convert from on-prem account to hybrid account.</li>
+</ol>
+<p>14. If we are requesting for any “myID-Identity Management” groups to non Personal Primary Identities except below groups, we will get policy violation.</p>
+<p><strong>Exceptional Groups:</strong></p>
+<ul>
+  <li>Henkel Certification Administrator</li>
+  <li>Compliance Officer Workgroup</li>
+  <li>Henkel Identity Management Team</li>
+  <li>Default Approver Workgroup</li>
+  <li>Henkel Application Owner</li>
+  <li>Global User Administration Team</li>
+  <li>Henkel CP Support</li>
+  <li>Service Desk Agent</li>
+  <li>Henkel Local Coordinator Germany</li>
+  <li>Henkel Identity Management SSC</li>
+  <li>Request Management Team</li>
+  <li>Henkel Role Administrator</li>
+  <li>Henkel Audit</li>
+  <li>MSO-myID-Administrator</li>
+  <li>Henkel-myID-Advanced-ElavatedAccess</li>
+  <li>Henkel-myID-Basic-ElavatedAccess</li>
+  <li>Hypercare-myID-EvaluatedAccess</li>
+  <li>MyID-DevTeam</li>
+  <li>WebServiceExecutor</li>
+</ul>
