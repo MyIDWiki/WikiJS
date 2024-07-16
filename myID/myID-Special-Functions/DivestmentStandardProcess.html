@@ -1,0 +1,101 @@
+<!--
+title: Divestment Standard Process
+description: Divestment Standard Process
+published: true
+date: 2024-07-16T09:11:00.197Z
+tags: 
+editor: ckeditor
+dateCreated: 2024-07-16T09:11:00.197Z
+-->
+
+<figure class="table">
+  <table style="border-bottom:none;border-left:none;border-right:none;border-top:none;">
+    <tbody>
+      <tr>
+        <td style="border-bottom:1.5pt none windowtext;border-left:1.5pt solid windowtext;border-right:1.5pt solid windowtext;border-top:1.5pt solid windowtext;padding:0cm 3.5pt;vertical-align:top;width:492.05pt;" colspan="3">&nbsp;</td>
+      </tr>
+      <tr>
+        <td style="border-bottom:none;border-left:1.5pt solid windowtext;border-right:1.5pt solid windowtext;border-top:none;padding:0cm 3.5pt;vertical-align:top;width:492.05pt;" colspan="3">
+          <p><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;</strong></p>
+          <p style="text-align:center;">&nbsp;</p>
+        </td>
+      </tr>
+      <tr>
+        <td style="border-bottom:none;border-left:1.5pt solid windowtext;border-right:1.5pt solid windowtext;border-top:none;padding:0cm 3.5pt;vertical-align:top;width:492.05pt;" colspan="3">
+          <p style="text-align:center;"><strong>Title:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Divestment Project Process</strong></p>
+        </td>
+      </tr>
+      <tr>
+        <td style="border-bottom:1.5pt solid windowtext;border-left:1.5pt solid windowtext;border-right:1.5pt solid windowtext;border-top:1.5pt none windowtext;padding:0cm 3.5pt;vertical-align:top;width:144.75pt;">
+          <p><strong>Responsible:</strong></p>
+          <p>Vasu Palanivel</p>
+        </td>
+        <td style="border-bottom:1.5pt solid windowtext;border-left:none;border-right:1.5pt solid windowtext;border-top:none;padding:0cm 3.5pt;vertical-align:top;width:184.3pt;">
+          <p><strong>Author:</strong></p>
+          <p>Nakul Bhakta</p>
+        </td>
+        <td style="border-bottom:1.5pt solid windowtext;border-left:none;border-right:1.5pt solid windowtext;border-top:none;padding:0cm 3.5pt;vertical-align:top;width:163.0pt;">
+          <p><strong>Consulted by:</strong></p>
+          <p>Vasu Palanivel</p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</figure>
+<p style="text-align:center;">&nbsp;</p>
+<p><strong>**For any queries please contact Vasu or Nakul before proceeding</strong></p>
+<h1>Authoratative Source</h1>
+<ul>
+  <li>Create a new application in myID with appropriate connector for the Authoratative source of the Divestment users.</li>
+  <li>The identities will be created after the aggregation from this source.</li>
+  <li>In past, for Russia divestment project we used our existing PMD application, so we created a new application with appropriate query to aggregate the users and create identities.</li>
+  <li>For Sherwin divestment project we used a CSV file as users source, so we created a new application with delimited connector. We used basic attributes of the users from PMD and added them in the CSV as source.</li>
+</ul>
+<h2>Identity creation process</h2>
+<ul>
+  <li>We need to use ‘Create Identity Rule’ or ‘Build Map Rule’ (in case of JDBC or delimitor) to create the divestment identities correctly in order to separate them from normal identities.</li>
+  <li>Every divestment identity must have identity type as ‘Divestment’ and sub type as ‘Personal Div’</li>
+  <li>We have to cautious as the divestment users already have an identity in myID and we are now creating a new divestment identity for these users with almost similar attributes. To differentiate these users we have a different identity type, but other unique attributes like Personid, upn, windows login id as well needs to be adjusted.</li>
+  <li>Please use below process to change these unique attributes.</li>
+  <li><strong>For Personid and Windows Login ID</strong>: Add prefix ‘div_’ to both of these attribute values.</li>
+</ul>
+<p>For example, if personid of the user is 20304050, then for the divestment identity the personid should be ‘div_20304050’. Similarly with Windows Login ID, if the value is ‘bhakta’, then for divestment identity the value should be ‘div_bhakta’.</p>
+<p><strong>For UPN</strong>: The postfix of the UPN ‘@henkel.com’ should be changed to ‘@div.henkel.com’ for all users, the prefix can be kept same as the existing identity.</p>
+<p>&nbsp;</p>
+<h2>&nbsp;Windows AD Account Creation</h2>
+<ul>
+  <li>If there is a requirement to create AD accounts for the divestment users at the time of identity creation, then first align with the AD team.</li>
+  <li>The AD team should create a new OU in AD and we must create the accounts in that OU. We must not use any existing OU for the accounts creation.</li>
+  <li>The OU creation part and any access related things will be done by the AD team.</li>
+  <li>For AD accounts, create a new Active Directory application in myID and use the newly created OU in the filters and configure the application.</li>
+  <li>For accounts creation either use ‘Batch Request’ or create a business role with AD provisioning policy and assign the role to user. (**Batch request sometime do not create correct AD accounts)</li>
+  <li>While creating the account also create password for the Windows account using rule ‘Divestment-SimpleADPwdGenerator’ in the provisioning policy for password attribute.</li>
+  <li>Later these passwords will be shared with the users to login via secure channels by project responsible person.</li>
+</ul>
+<h2>Other accounts creation</h2>
+<ul>
+  <li>If any other accounts should be created for the divestment users, then similar approach should be used like Windows AD accounts.</li>
+  <li>For passwords of these accounts, we should use the same password which was generated for AD accounts (refer to point 3 for the rule).</li>
+</ul>
+<h2>&nbsp;Entitlement Assignment</h2>
+<ul>
+  <li>Normally the divestment users will not have any default entitlements assigned at the time of account creation.</li>
+  <li>If any entitlements are needed to be added to these users then we have to use Sailpoint Roles. For this reason we have a new type of role created in myID called ‘Divestment’.</li>
+  <li>We should create a Divestment role which will be assigned and an IT role with the required entitlement in the Divestment role.</li>
+  <li>We can either use Batch Request or normal access request to assign these roles. (Only service desk users can request the access from myID. Appropriate access controls are already in place)</li>
+</ul>
+<h2>&nbsp;Access Control of Divestment Identities</h2>
+<ul>
+  <li>We have the access controls in place for the Divestment identities, provided the identity type is ‘Divestment’.</li>
+  <li>The divestment users cannot be searched on manage access and manage account pages.</li>
+  <li>Only Service desk users can search the divestment users and request for any access.</li>
+  <li>We have a separate role type of divestment users which can only be assigned to divestment users.</li>
+</ul>
+<h2>&nbsp;Cutoff date activities</h2>
+<ul>
+  <li>Disable AD accounts for all normal identities.</li>
+  <li>For divestment users, if any AD accounts are disabled, activate them.</li>
+  <li>If any of the divestment users cannot login into AD, reset the password using Batch Request and provide new password for first time login.</li>
+</ul>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
