@@ -1,0 +1,21 @@
+<!--
+title: External attribute changes depending on Identity types 
+description: External atribute 11 changes in the different identity types
+published: true
+date: 2024-07-23T14:23:47.186Z
+tags: 
+editor: ckeditor
+dateCreated: 2024-07-23T14:23:47.186Z
+-->
+
+<h1>External attribute 11 changes depending on Identity types&nbsp;</h1>
+<p>&nbsp;</p>
+<ul>
+  <li>If identitytype is Personal Primary and myIDPersonEmployeeGroup contains “789” then extAtt11 will be updated to <strong>external-main </strong>else <strong>internal-main</strong></li>
+  <li>If identitytype is Personal Secondary and owner’s myIDPersonEmployeeGroup contains “789” then extAtt11 will be updated to <strong>external-additional </strong>else <strong>internal-additional</strong></li>
+  <li>If identitytype is Shared ID, <strong>department</strong></li>
+  <li>If identitytype is System ID, <strong>system-id</strong></li>
+  <li>If identitytype is Robot ID, <strong>robot-id</strong></li>
+  <li>If identitytype is Shared Mailbox, <strong>department-ln</strong></li>
+  <li>If identitytype is null, extAtt11 will be updated to null</li>
+</ul>
