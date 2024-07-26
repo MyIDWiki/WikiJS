@@ -1,0 +1,478 @@
+<!--
+title: GUA Edit Identity Attributes
+description: New custom form to edit identity attributes by GUA team
+published: true
+date: 2024-07-26T06:02:46.144Z
+tags: 
+editor: ckeditor
+dateCreated: 2024-07-26T06:02:46.144Z
+-->
+
+<p><strong><u>Functional Design:</u></strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;CHG0137072</p>
+<p>&nbsp;</p>
+<p>Title: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;GUA Edit Identity Attribute Form</p>
+<p>Responsible:</p>
+<p>Manikandan M Author:</p>
+<p>Manikandan M Consulted by:</p>
+<p>Vasu P</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Version Date Author Changes with respect to previous version</p>
+<p>1.0 06/07/2024 Manikandan M CHG0137072</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>&nbsp;</p>
+<p>Provide a statement for each change in the document: What is the change cause? &nbsp;What has been changed? (Please mark the last change in blue) Point out which of the versions are the bases for the estimated effort!</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>This document should be used for: process creation, process change, and developments!</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>TABLE OF CONTENTS</p>
+<p>&nbsp;</p>
+<p>Please do not delete any chapter from the table of contents that you cannot fill but leave it open so that the chapter numbers of your document are not different from the template.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1. &nbsp; FUNCTIONAL DESIGN...................................................................................................................... 3</p>
+<p>1.1. &nbsp; &nbsp; FUNCTIONAL DETAILS (MANDATORY).............................................................................................................. 3</p>
+<p>1.1.1. &nbsp; &nbsp; Detailed functional Description................................................................................................................ 3</p>
+<p>1.1.2. &nbsp; &nbsp; High Level Technical Information............................................................................................................... 3</p>
+<p>1.1.3. &nbsp; &nbsp; Process Flow Diagram at High Level.......................................................................................................................... 4</p>
+<p>1.1.4. &nbsp; &nbsp; Selection Screen....................................................................................................................... 4</p>
+<p>1.1.5. &nbsp; &nbsp; Result / Output...................................................................................................................... 4</p>
+<p>1.1.6. &nbsp; &nbsp; Language.................................................................................................... 4</p>
+<p>1.1.7. &nbsp; &nbsp; ERROR HANDLING................................................................................................................ 4</p>
+<p>1.2. &nbsp; &nbsp; TESTING REQUIREMENTS................................................................................................................ 5</p>
+<p>1.3. &nbsp; &nbsp; DEPENDENCIES TO OTHER PROCESSES..................................................................................................................... &nbsp;5</p>
+<p>1.4. &nbsp; &nbsp; RISKS AND CONSTRAINTS.................................................................................................................. 5</p>
+<p>1.5. &nbsp; &nbsp; ASSUMPTIONS...................................................................................................... &nbsp;5</p>
+<p>1.6. &nbsp; &nbsp; AUTHORIZATION................................................................................................... &nbsp;5</p>
+<p>1.7. &nbsp; &nbsp; OPEN / CLOSED ITEMS............................................................................................................................ 5</p>
+<p>1.8. &nbsp; &nbsp; MISCELLANEOUS................................................................................................... 5</p>
+<p>1.9. &nbsp; &nbsp; DEFINITIONS, ACRONYMS, ABBREVIATIONS AND CALCULATIONS................................................................................................................ 5</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>This chapter is defining the scope of the work. Any changes after the formal sign off will need to go through scope change management process: estimation of impact on timelines and effort and formal approval to get it incorporated in the scope.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1. &nbsp; FUNCTIONAL DESIGN</p>
+<p>&nbsp;</p>
+<p>1.1. &nbsp; &nbsp; &nbsp; &nbsp; FUNCTIONAL DETAILS (MANDATORY)</p>
+<p>&nbsp;</p>
+<p>1.1.1. Detailed functional Description</p>
+<p>This document is to re-define the new process to edit the attributes of an identity cube in the myid system. An identity cube is a collection of identity data that is used to manage access rights and permissions for different applications and systems. The identity attributes are the properties of an identity cube, such as name, email, manager, etc.</p>
+<p>In the current process, GUA staffs have access to edit the identity attributes directly from the identity warehouse, which is the central repository of identity data. However, this direct update has created many data quality issues, mainly because the attribute updates in this area are free text fields and no validations are performed. This can lead to inconsistent, inaccurate, or incomplete identity data, which can affect the security and functionality of the myid system and the applications that rely on it.</p>
+<p>To address these issues, we propose a new process that follows a proper validation and audit procedure to update the identity attributes. This document will explain the new process and the steps involved in editing the identity attributes.</p>
+<p>1.1.1.1. Target Systems</p>
+<p>&nbsp;</p>
+<p>The targets used in this case is myID.</p>
+<p>&nbsp;</p>
+<p>1.1.1.2. Business Functionality</p>
+<p>The new process to edit the identity attributes is as follows:</p>
+<p>1. We will introduce a new quick link in the myid system that is accessible only to GUA staff.</p>
+<p>2. We will disable the capability associated with editing the identity attributes in the identity warehouse.</p>
+<p>3. The quick link will launch a workflow to update the identity attributes. The workflow will contain validations and quality checks to handle each of the fields that are updated.</p>
+<p>4. Once the field level validations are passed, a confirmation screen will display the changes to be submitted.</p>
+<p>5. Custom audit events will capture the changes and the source (requester) in detail.</p>
+<p>6. Post audit, a provisioning plan with an access request (auto approved) will be generated to track the changes.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1.1.1.3. In Scope Requirements</p>
+<p>The scope of this requirement is to introduce new quicklink form for GUA team to perform update identity attributes like as-is in the same way that they are doing through OOTB edit attributes screen.</p>
+<p>As phase1 we will introduce validations only for the following fields :</p>
+<p>Identity Attribute Validations to be introduced Use Case binding</p>
+<p>Identity Type &nbsp; Value to selected from dropdown Identity type changes – for example shared ID to Shared Mailbox,</p>
+<p>Last Name / First Name &nbsp; Special characters check only for secondary identities</p>
+<p>Windows Login ID &nbsp; check for existence in the System as name of secondary identity / main user id of existing or users who left henkel Valid - Incase of garden leaver</p>
+<p>Mobile Number &nbsp; Valid mobile number format Update of mobile number - based on request ticket received</p>
+<p>Manager &nbsp; Only active personal primary users Valid - for the garden leaver</p>
+<p>Owner &nbsp; only active personal primary users Changing owner of secondary identities – based on request</p>
+<p>No Usage Check / Power BI Check / Leaver Exception / Locked By SOC &nbsp; True / False Valid</p>
+<p>Inactive &nbsp; True/False. Also should trigger a special process to disable / enable all associated accounts in plan Valid</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1.1.2. &nbsp; &nbsp; High Level Technical Information</p>
+<p>The steps to update the identity attributes using the new process are as follows:</p>
+<p>1. Log in to the myid system and click on the quick link that says "Edit Identity Attributes". This will launch the workflow to update the identity attributes.</p>
+<p>2. Select the identity cube that needs to be updated.</p>
+<p>3. Fill in the fields that need to be updated. The workflow will perform validations and quality checks on each field. For example, it will check if the email format is valid, if the manager exists in the system, if the identity type is consistent with the identity sub type, etc. If there are any errors or warnings, the workflow will display them and ask you to correct them or confirm them.</p>
+<p>4. Once all the fields are filled in and validated, click on the "Submit" button. A confirmation screen will show the changes that will be made to the identity cube. Review the changes and click on the "Confirm" button.</p>
+<p>5. The workflow will generate custom audit events that will capture the changes and the source (requester) in detail. These audit events will be stored in the myID system and can be viewed by authorized users.</p>
+<p>6. The workflow will also generate a provisioning plan with an access request that will track the changes. The access request will be auto approved, and the changes will be applied to the identity cube.</p>
+<p>7. The identity which is updated (owner in case it is secondary) , GUA team member will send notification that the identity attributes have been updated successfully.</p>
+<p>&nbsp;</p>
+<p>1.1.2. Process Flow Diagram at High Level &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1.1.3. &nbsp; &nbsp; Selection Screen</p>
+<p>&nbsp;N/A &nbsp;</p>
+<p>&nbsp;</p>
+<p>1.1.4. &nbsp; &nbsp; Result / Output</p>
+<p>This document has explained the new process to edit the identity attributes in the myid system. The new process will ensure that the identity data is consistent, accurate, and complete, and that the changes are validated and audited. The new process will also improve the security and functionality of the myid system and the applications that rely on it.</p>
+<p>1.1.5. &nbsp; &nbsp; Language</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; N/A &nbsp;</p>
+<p>1.1.6. &nbsp; &nbsp; ERROR HANDLING</p>
+<p>&nbsp; N/A</p>
+<p>&nbsp;</p>
+<p>1.2. &nbsp; &nbsp; &nbsp; &nbsp; TESTING REQUIREMENTS</p>
+<p>&nbsp;Results of testing performed on all myID environment:</p>
+<p>&nbsp;</p>
+<p>From Value To Value Subsequent Steps</p>
+<p>Shared ID Shared Mailbox Set the following Identity attributes</p>
+<p>-cloudAccountDetails = H</p>
+<p>-myidIdentitySubType = Shared Mailbox</p>
+<p>&nbsp;</p>
+<p>If AD account is in active state – Convert to inactive state.</p>
+<p>&nbsp;</p>
+<p>Refresh the identity with role assignment and role provision option</p>
+<p>&nbsp;</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>All other accounts other than Windows Login (AD), Mailing Group, Azure AD, Lotus Notes to be removed.</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information.</p>
+<p>&nbsp;</p>
+<p>In case AD account is missing , create a new AD account with extensionAttribute7=1 [Step not needed as we have another story for shared id creation process change]</p>
+<p>&nbsp;</p>
+<p>In case the AD account is present as on-prem only. Then Extension7 attribute need to be updated to 1. [Step not needed as we have another story for shared id creation process change]</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>System ID &nbsp;Shared ID Need to collect from user , the following additional fields</p>
+<p>-Purpose</p>
+<p>-Documentation</p>
+<p>&nbsp;</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>Set the following Identity attributes</p>
+<p>-cloudAccountDetails = H</p>
+<p>-myidIdentitySubType = Shared User ID</p>
+<p>&nbsp;</p>
+<p>In case AD account is missing , create a new AD account with extensionAttribute7=1 .</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information</p>
+<p>&nbsp;</p>
+<p>Trigger an event based certification to the owner of the secondary identity to review all access for the new shared ID</p>
+<p>&nbsp;</p>
+<p>In case the AD account is present as on-prem only. Then Extension7 attribute need to be updated to 1. &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>System ID Shared Mailbox Set the following Identity attributes</p>
+<p>-cloudAccountDetails = H</p>
+<p>-myidIdentitySubType = Shared Mailbox</p>
+<p>&nbsp;</p>
+<p>All other accounts other than Windows Login (AD), Mailing Group, Azure AD, Lotus Notes to be removed.</p>
+<p>&nbsp;</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information.</p>
+<p>&nbsp;</p>
+<p>In case AD account is missing, create a new AD account with extensionAttribute7=1 in inactive state</p>
+<p>&nbsp;</p>
+<p>In case the AD account is present as on-prem only. Then Extension7 attribute need to be updated to 1. Change the AD account state to inactive</p>
+<p>&nbsp;</p>
+<p>Refresh the identity with role assignment and role provision option</p>
+<p>Personal Primary Personal Secondary -myidIdentitySubType = Personal Testing Accounts</p>
+<p>&nbsp;</p>
+<p>[In case AD account is present for new identity]</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1.3. &nbsp; &nbsp; &nbsp; &nbsp; DEPENDENCIES TO OTHER PROCESSES</p>
+<p>• myID Servers are up and running.</p>
+<p>• AD and other target application should be up and running</p>
+<p>1.4. &nbsp; &nbsp; &nbsp; &nbsp; RISKS AND CONSTRAINTS</p>
+<p>N/A &nbsp;</p>
+<p>1.5. &nbsp; &nbsp; &nbsp; &nbsp; ASSUMPTIONS</p>
+<p>• GUA team must have basic knowledge about edit identity attribute as they already performing the same process through OOTB screen.</p>
+<p>• 1.6. &nbsp; &nbsp; &nbsp; &nbsp; AUTHORIZATION</p>
+<p>N/A</p>
+<p>1.7. &nbsp; &nbsp; &nbsp; &nbsp; OPEN / CLOSED ITEMS</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;N/A &nbsp;</p>
+<p>&nbsp;</p>
+<p>1.8. &nbsp; &nbsp; &nbsp; &nbsp; MISCELLANEOUS</p>
+<p>N/A</p>
+<p>1.9. &nbsp; &nbsp; &nbsp; &nbsp; DEFINITIONS, ACRONYMS, ABBREVIATIONS AND CALCULATIONS</p>
+<p>N/A &nbsp;</p>
+<p><strong><u>Technical Design:</u></strong>&nbsp;</p>
+<p>&nbsp; CHG0137072</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;</p>
+<p>TD GUA Edit Identity Attribute Form</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Object description</p>
+<p>&nbsp;</p>
+<p>Technology (Abap, SAP BI, Lotus Notes, .NET/ASP, JAVA, ADOBE, PL/SQL, etc) Product – SailPoint IIQ version 8.3p1 Technology – Java, Oracle 19</p>
+<p>Object ID name</p>
+<p>SAP ERP: Object-ID</p>
+<p>SAP BI: &nbsp;Info object</p>
+<p>L.Notes: DB file Name</p>
+<p>Adobe: Object-id (Source Adobe object .IFD)</p>
+<p>.NET/ASP: File-id &nbsp;(Possibility of entering more than one file)</p>
+<p>PL/SQL: Package\Function</p>
+<p>… • Henkel-WF-EditIdentityAttributesByGUA.xml</p>
+<p>• Henkel-QL-CustomEditIdentityAttributes.xml</p>
+<p>• Henkel-DynamicScope-GUAEditIdentityAttributes.xml</p>
+<p>• GroupDefinition: Global User Administration team population</p>
+<p>• AuditConfig: Edit Identity Attribute by GUA Team</p>
+<p>Object Description / Purpose</p>
+<p>Object description</p>
+<p>L.Notes: DB Title</p>
+<p>… NA</p>
+<p>Object Type</p>
+<p>SAP ERP: Report, Module Pool, function module, etc.</p>
+<p>SAP BI: ODS, Infocube,…</p>
+<p>L.Notes: &nbsp;always “Data Base”</p>
+<p>ADOBE: always “Template”</p>
+<p>.NET/ASP: Kind of file (Aspx, Cs...)</p>
+<p>PL/SQL: Package, function, Procedure, job…</p>
+<p>… NA</p>
+<p>Development system</p>
+<p>SAP ERP: &nbsp;(X01, D08,D12 …)</p>
+<p>SAP BI:</p>
+<p>Lotus Notes: domino server name</p>
+<p>ADOBE: Server name</p>
+<p>.NET/ASP, PL/SQL: &nbsp;Server: ESBCSVT370, TFMD01,...:</p>
+<p>… &nbsp;NA</p>
+<p>&nbsp;</p>
+<p>SAP Abap:</p>
+<p>Development Class / Package/TR Module / solution</p>
+<p>(SD, FICO, MM, PP, WM.., APO, EH&amp;S, BW, SEM-BPS, .. CRM... ) Transport request number</p>
+<p>NA NA &nbsp;</p>
+<p>NA</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Document history</p>
+<p>&nbsp;</p>
+<p>Created on Author Department / Company Change request number Change Details</p>
+<p>06/07/2024 Manikandan M &nbsp; &nbsp; &nbsp; &nbsp;Henkel CHG0137072 &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Provide a statement for each change in the document: What is the change cause? &nbsp;What has been changed? (Please mark the last change in blue) Point out which of the versions is the base for the estimated effort!</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Reviewers</p>
+<p>&nbsp;</p>
+<p>Date Name CR ticket</p>
+<p>&nbsp; &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;INDEX</p>
+<p>1 &nbsp; &nbsp;OBJECTIVE</p>
+<p>2 &nbsp; &nbsp;ASSUMPTION</p>
+<p>3 &nbsp; &nbsp;DEPENDENCIES / CONSTRAINTS</p>
+<p>4 &nbsp; &nbsp;CREATED/MODIFIED OBJECTS (OVERVIEW)</p>
+<p>5 &nbsp; &nbsp;TECHNICAL FLOW DIAGRAM</p>
+<p>6 &nbsp; &nbsp;LOGIC OF THE DEVELOPMENT</p>
+<p>6.1.1.1 &nbsp; &nbsp; Type:</p>
+<p>6.1.1.2 &nbsp; &nbsp; Input:</p>
+<p>6.1.1.3 &nbsp; &nbsp; Object Logic</p>
+<p>6.1.2 &nbsp; &nbsp; &nbsp; Error Handling &amp; Fall back scenario</p>
+<p>6.1.3 &nbsp; &nbsp; &nbsp; Output</p>
+<p>6.1.4 &nbsp; &nbsp; &nbsp; Security and Authorizations</p>
+<p>7 &nbsp; &nbsp;OUTPUT</p>
+<p>8 &nbsp; &nbsp;CODE INSPECTOR</p>
+<p>9 &nbsp; &nbsp;ENHANCEMENTS (CHXXXXX):-</p>
+<p>9.1 &nbsp; &nbsp;ENHANCEMENT</p>
+<p>9.1.1 &nbsp; &nbsp; &nbsp; Objective</p>
+<p>9.1.2 &nbsp; &nbsp; &nbsp; Created/Modified Objects (Overview)</p>
+<p>9.1.2.1 &nbsp; &nbsp; Object description</p>
+<p>9.1.2.2 &nbsp; &nbsp; Input</p>
+<p>9.1.2.3 &nbsp; &nbsp; Object Logic</p>
+<p>9.1.2.4 &nbsp; &nbsp; Output –</p>
+<p>9.1.3 &nbsp; &nbsp; &nbsp; Test Scenario</p>
+<p>9.1.4 &nbsp; &nbsp; &nbsp; Issue list</p>
+<p>9.1.5 &nbsp; &nbsp; &nbsp; Code inspector –</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>1 Objective</p>
+<p>This document is to re-define the new process to edit the attributes of an identity cube in the myid system. An identity cube is a collection of identity data that is used to manage access rights and permissions for different applications and systems. The identity attributes are the properties of an identity cube, such as name, email, manager, etc.</p>
+<p>In the current process, GUA staffs have access to edit the identity attributes directly from the identity warehouse, which is the central repository of identity data. However, this direct update has created many data quality issues, mainly because the attribute updates in this area are free text fields and no validations are performed. This can lead to inconsistent, inaccurate, or incomplete identity data, which can affect the security and functionality of the myid system and the applications that rely on it.</p>
+<p>To address these issues, we propose a new process that follows a proper validation and audit procedure to update the identity attributes. This document will explain the new process and the steps involved in editing the identity attributes.</p>
+<p>2 &nbsp; &nbsp; &nbsp; Assumption</p>
+<p>• GUA must have knowledge on myID functionality</p>
+<p>• GUA team members must be member of their existing workgroup</p>
+<p>• GUA team should aware the edit identity attribute functionality which they are performing already using OOTB screen.</p>
+<p>3 &nbsp; &nbsp; &nbsp; Dependencies / Constraints</p>
+<p>• myID Servers are up and running.</p>
+<p>• AD and other target applications should be up and running</p>
+<p>4 &nbsp; &nbsp; &nbsp; Created/Modified Objects (Overview)</p>
+<p>Below is the list of files either created or reused.</p>
+<p>• Henkel-WF-EditIdentityAttributesByGUA.xml</p>
+<p>• Henkel-QL-CustomEditIdentityAttributes.xml</p>
+<p>• Henkel-DynamicScope-GUAEditIdentityAttributes.xml</p>
+<p>• GroupDefinition: Global User Administration team population</p>
+<p>• AuditAction: Edit Identity Attribute by GUA Team</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>5 &nbsp; &nbsp; &nbsp; Technical Flow Diagram</p>
+<p>&nbsp;</p>
+<p>6 &nbsp; &nbsp; &nbsp; &nbsp;Logic of the development</p>
+<p>The steps to update the identity attributes using the new process are as follows:</p>
+<p>1. Log in to the myid system and click on the quick link that says "Edit Identity Attributes". This will launch the workflow to update the identity attributes.</p>
+<p>2. Select the identity cube that needs to be updated.</p>
+<p>3. Fill in the fields that need to be updated. The workflow will perform validations and quality checks on each field. For example, it will check if the email format is valid, if the manager exists in the system, if the identity type is consistent with the identity sub type, etc. If there are any errors or warnings, the workflow will display them and ask you to correct them or confirm them.</p>
+<p>4. Once all the fields are filled in and validated, click on the "Submit" button. A confirmation screen will show the changes that will be made to the identity cube. Review the changes and click on the "Confirm" button.</p>
+<p>5. The workflow will generate custom audit events that will capture the changes and the source (requester) in detail. These audit events will be stored in the myID system and can be viewed by authorized users.</p>
+<p>6. The workflow will also generate a provisioning plan with an access request that will track the changes. The access request will be auto approved, and the changes will be applied to the identity cube.</p>
+<p>7. The identity which is updated (owner in case it is secondary) , GUA team member will send notification that the identity attributes have been updated successfully.</p>
+<p>7 &nbsp; &nbsp; &nbsp; Output</p>
+<p>This document has explained the new process to edit the identity attributes in the myid system. The new process will ensure that the identity data is consistent, accurate, and complete, and that the changes are validated and audited. The new process will also improve the security and functionality of the myid system and the applications that rely on it.</p>
+<p>8 &nbsp; &nbsp; &nbsp; Code Inspector</p>
+<p>N/A</p>
+<p>9 &nbsp; &nbsp; &nbsp; Enhancements: -</p>
+<p>&nbsp;</p>
+<p>9.1 &nbsp; Enhancement</p>
+<p>9.1.1 &nbsp; &nbsp; Objective</p>
+<p>In the current process, GUA staffs have access to edit the identity attributes directly from the identity warehouse, which is the central repository of identity data. However, this direct update has created many data quality issues, mainly because the attribute updates in this area are free text fields and no validations are performed. This can lead to inconsistent, inaccurate, or incomplete identity data, which can affect the security and functionality of the myid system and the applications that rely on it.</p>
+<p>To address these issues, we propose a new process that follows a proper validation and audit procedure to update the identity attributes. This document will explain the new process and the steps involved in editing the identity attributes. &nbsp;</p>
+<p>9.1.2 &nbsp; &nbsp; Created/Modified Objects (Overview)</p>
+<p>Object Type Purpose / Comments Action &nbsp;</p>
+<p>C=Create &nbsp;</p>
+<p>M=Modify &nbsp;</p>
+<p>D=Delete &nbsp;</p>
+<p>U=Used</p>
+<p>Henkel-WF-EditIdentityAttributesByGUA.xml Workflow Subprocess behind the quicklink execution C</p>
+<p>Henkel-QL-CustomEditIdentityAttributes.xml Quicklink Quicklink to trigger form and workflow C</p>
+<p>Henkel-DynamicScope-GUAEditIdentityAttributes.xml Dynamic Scope Dynamic scope to process Quicklink access C</p>
+<p>Global User Administration team population GroupDefinition Population of GUA Team members U</p>
+<p>Edit Identity Attribute by GUA Team AuditAction AuditAction to capture audit events. C</p>
+<p>&nbsp;</p>
+<p>9.1.2.1 &nbsp; Object description</p>
+<p>N/A</p>
+<p>9.1.2.2 &nbsp; Input &nbsp; &nbsp;</p>
+<p>N/A</p>
+<p>9.1.2.3 &nbsp; Object Logic &nbsp;</p>
+<p>N/A &nbsp;</p>
+<p>9.1.2.4 &nbsp; Output –</p>
+<p>N/A</p>
+<p>9.1.3 &nbsp; &nbsp; Test Scenario</p>
+<p>From Value To Value Subsequent Steps</p>
+<p>Shared ID Shared Mailbox Set the following Identity attributes</p>
+<p>-cloudAccountDetails = H</p>
+<p>-myidIdentitySubType = Shared Mailbox</p>
+<p>&nbsp;</p>
+<p>If AD account is in active state – Convert to inactive state.</p>
+<p>&nbsp;</p>
+<p>Refresh the identity with role assignment and role provision option</p>
+<p>&nbsp;</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>All other accounts other than Windows Login (AD), Mailing Group, Azure AD, Lotus Notes to be removed.</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information.</p>
+<p>&nbsp;</p>
+<p>In case AD account is missing , create a new AD account with extensionAttribute7=1 [Step not needed as we have another story for shared id creation process change]</p>
+<p>&nbsp;</p>
+<p>In case the AD account is present as on-prem only. Then Extension7 attribute need to be updated to 1. [Step not needed as we have another story for shared id creation process change]</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>System ID &nbsp;Shared ID Need to collect from user , the following additional fields</p>
+<p>-Purpose</p>
+<p>-Documentation</p>
+<p>&nbsp;</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>Set the following Identity attributes</p>
+<p>-cloudAccountDetails = H</p>
+<p>-myidIdentitySubType = Shared User ID</p>
+<p>&nbsp;</p>
+<p>In case AD account is missing , create a new AD account with extensionAttribute7=1 .</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information</p>
+<p>&nbsp;</p>
+<p>Trigger an event based certification to the owner of the secondary identity to review all access for the new shared ID</p>
+<p>&nbsp;</p>
+<p>In case the AD account is present as on-prem only. Then Extension7 attribute need to be updated to 1. &nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>System ID Shared Mailbox Set the following Identity attributes</p>
+<p>-cloudAccountDetails = H</p>
+<p>-myidIdentitySubType = Shared Mailbox</p>
+<p>&nbsp;</p>
+<p>All other accounts other than Windows Login (AD), Mailing Group, Azure AD, Lotus Notes to be removed.</p>
+<p>&nbsp;</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information.</p>
+<p>&nbsp;</p>
+<p>In case AD account is missing, create a new AD account with extensionAttribute7=1 in inactive state</p>
+<p>&nbsp;</p>
+<p>In case the AD account is present as on-prem only. Then Extension7 attribute need to be updated to 1. Change the AD account state to inactive</p>
+<p>&nbsp;</p>
+<p>Refresh the identity with role assignment and role provision option</p>
+<p>Personal Primary Personal Secondary -myidIdentitySubType = Personal Testing Accounts</p>
+<p>&nbsp;</p>
+<p>[In case AD account is present for new identity]</p>
+<p>Password should expire in the next logon</p>
+<p>&nbsp;</p>
+<p>AD extension Attribute11 need to be updated with relevant identity type information</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>9.1.4 &nbsp; &nbsp; Issue list</p>
+<p>N/A</p>
+<p>9.1.5 &nbsp; &nbsp; Code inspector –</p>
+<p>N/A</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
